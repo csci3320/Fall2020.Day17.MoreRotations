@@ -5,25 +5,29 @@ public abstract class Digraphable<T extends Comparable> implements MyCollection<
 
   protected Node<T> root;
   protected Node<T> tempRoot;
-  List<Node<T>> visitedNodes;// Prevent infinite loops when drawing
+  protected boolean isLeftRotation; //Keeps track of which direction the current rotation is--only for display
+  private List<Node<T>> visitedNodes;// Prevent infinite loops when drawing
 
   protected Digraphable() {
     root = null;
     tempRoot = null; // Only used during rotations;
+    isLeftRotation = false;
   }
 
   public String getDigraph() {
     visitedNodes = new ArrayList<Node<T>>();
     String toReturn = "";
-    if (tempRoot == null) {
-      // toReturn += "tempRoot->null\n";
-    } else {
+   
+    if (tempRoot != null && isLeftRotation){
       toReturn += "tempRoot->" + tempRoot.getValue().toString() + "\n" + digraph(tempRoot);
     }
     if (root == null) {
       toReturn += "root->null\n";
     } else {
       toReturn += "root->" + root.getValue().toString() + "\n" + digraph(root);
+    }
+    if (tempRoot != null && !isLeftRotation){
+      toReturn += "tempRoot->" + tempRoot.getValue().toString() + "\n" + digraph(tempRoot);
     }
     return toReturn;
   }
@@ -68,30 +72,18 @@ public abstract class Digraphable<T extends Comparable> implements MyCollection<
     String rightValue = "";
     String middle = "";
 
-    var showNull = true;
-    if (showNull) {
+    
+    
       if (left == null)
-        leftValue = "null_l_" + nodeName + "[label=\"left\"]\n" + "null_l_" + nodeName + "[label=\"null\"]\n";
+        leftValue = "null_l_" + nodeName + "[label=\"left\"]\nnull_l_" + nodeName + "[label=\"null\",color=\"white\"]\n";
       else
         leftValue = left.getValue().toString() + "[label=\"left\"]\n";
       if (right == null)
-        rightValue = "null_r_" + nodeName + "[label=\"right\"]\n" + "null_r_" + nodeName + "[label=\"null\"]\n";
+        rightValue = "null_r_" + nodeName + "[label=\"right\"]\nnull_r_" + nodeName + "[label=\"null\",color=\"white\"]\n";
       else
         rightValue = right.getValue().toString() + "[label=\"right\"]\n";
       middle = nodeName + "->" + leftValue +   nodeName + "->" + rightValue;
-    } else {
-      leftValue = left == null ? "null" : left.getValue().toString();
-      // getDigraphBalanceFactor(left);
-      rightValue = right == null ? "null" : right.getValue().toString();
-      // getDigraphBalanceFactor(right);
-      if (!(leftValue.contentEquals("null"))) {
-        middle += nodeName + "->" + leftValue + "[label=\"left\"]\n";
-      }
-      if (!(rightValue.contentEquals("null"))) {
-        middle += nodeName + "->" + rightValue + "[label=\"right\"]\n";
-      }
-
-    }
+    
 
     return nodeName + "[label=\"" + nodeValue + "\"];\n" + digraph(left) + middle + digraph(right);
   }

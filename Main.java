@@ -3,9 +3,7 @@ import java.io.IOException;
 import java.net.URI;
 
 public class Main{
-    public static void main(String[] args) {
-        new Main();
-    }
+    
 
     public static void viewTree(Digraphable myCollection){
         String s = "https://dreampuf.github.io/GraphvizOnline/#";
@@ -37,32 +35,45 @@ public class Main{
         }
     }
 
-    public Main(){
-        MyCollection<String> myCollection = new BinaryTree();
-        // System.out.println(myCollection.size());
-        // myCollection.add("mike");
-        // System.out.println(myCollection.size());
-        // myCollection.add("golf");
-        // // System.out.println(myCollection.size());
-        // // myCollection.add("sierra");
-        // System.out.println(myCollection.size());
-        // myCollection.add("alpha");
-        // System.out.println(myCollection.size());
-
-
-        // System.out.println(myCollection.contains("mike"));
-        // System.out.println(myCollection.contains("Haul Truck"));
-
-        myCollection.add("mike");
-        myCollection.add("sierra");
-        myCollection.add("zulu");
-
-        //Main.viewTree(myCollection);
-
-        
-
-
+    public static void main(String[] args) {
+        new Main();
     }
 
-    
+    public Main(){
+        MyCollection<String> myCollection = new BinaryTree();
+
+        // Simple left rotation
+        // myCollection.add("mike");
+        // myCollection.add("sierra");
+        // myCollection.add("zulu");
+
+        // Simple right rotation
+        // myCollection.add("mike");
+        // myCollection.add("golf");
+        // myCollection.add("alpha");
+
+        // Level 2 left rotation
+        // myCollection.add("mike");
+        // myCollection.add("golf");
+        // myCollection.add("sierra");
+        // myCollection.add("romeo");
+        // myCollection.add("xray");
+        // myCollection.add("zulu");
+
+        // Level 2 right rotation
+        myCollection.add("mike");
+        myCollection.add("zulu");
+        myCollection.add("golf");
+        myCollection.add("hotel");
+        myCollection.add("bravo");
+        myCollection.add("alpha");
+
+        //Double Rotation
+        // myCollection.add("mike");
+        // myCollection.add("golf");
+        // myCollection.add("sierra");
+        // myCollection.add("oscar");
+        // myCollection.add("charlie");
+        // myCollection.add("romeo");
+    }
 }
