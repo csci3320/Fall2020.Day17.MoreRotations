@@ -28,12 +28,14 @@ public class BinaryTree<T extends Comparable> extends Digraphable<T> {
             addNode(root, node);
         }
         boolean didBalance = false;
-        do {
-            calculateBalance(root);
-            Main.viewTree(this);
-            didBalance = balanceRoot();
-        } while (didBalance);
+        // do {
+        //     calculateBalance(root);
+        //     Main.viewTree(this);
+        //     didBalance = balanceRoot();
+        // } while (didBalance);
         calculateBalance(root);
+        balanceRoot();
+        Main.viewTree(this);
 
     }
 
@@ -81,70 +83,76 @@ public class BinaryTree<T extends Comparable> extends Digraphable<T> {
             }
             return true;
         }
-        if (balance(root.getLeft(), root, true))
-            return true;
-        if (balance(root.getRight(), root, false))
-            return true;
+        // if (balance(root.getLeft(), root, true))
+        //     return true;
+        // if (balance(root.getRight(), root, false))
+        //     return true;
         return false;
 
     }
 
-    private boolean balance(Node<T> node, Node<T> parent, boolean fromParentLeft) {
-        if (node == null)
-            return false;
-        // We need to balance this node
-        if (node.getBalanceFactor() > 1 || node.getBalanceFactor() < -1) {
-            if (node.getBalanceFactor() < 0) {
-                isLeftRotation = false;
-                // We need to do a right rotation
-                // 1. Get a new reference to the root
-                Main.viewTree(this);
-                tempRoot = node;
-                Main.viewTree(this);
-                // 2. Move the root reference to the left child
-                if (fromParentLeft)
-                    parent.setLeft(node.getLeft());
-                else
-                    parent.setRight(node.getLeft());
-                Main.viewTree(this);
+    // private boolean balance(Node<T> node, Node<T> parent, boolean fromParentLeft) {
+    //     if (node == null)
+    //         return false;
+    //     // We need to balance this node
+    //     if (node.getBalanceFactor() > 1 || node.getBalanceFactor() < -1) {
+    //         tempParent = parent;
+    //         if (node.getBalanceFactor() < 0) {
+    //             isLeftRotation = false;
+    //             // We need to do a right rotation
+    //             // 1. Get a new reference to the root
+    //             Main.viewTree(this);
+    //             tempRoot = node;
+    //             Main.viewTree(this);
+    //             // 2. Move the root reference to the left child
+    //             if (fromParentLeft)
+    //                 parent.setLeft(node.getLeft());
+    //             else
+    //                 parent.setRight(node.getLeft());
+    //             Main.viewTree(this);
 
-                tempRoot.setLeft(parent.getRight());
-                Main.viewTree(this);
+    //             node = node.getLeft();
 
-                parent.setRight(tempRoot);
-                Main.viewTree(this);
+    //             tempRoot.setLeft(node.getRight());
+    //             Main.viewTree(this);
 
-                tempRoot = null;
-            }
-            if (node.getBalanceFactor() > 0) {
-                isLeftRotation = true;
-                // 1. Get a new reference to the root
-                Main.viewTree(this);
-                tempRoot = node;
-                Main.viewTree(this);
-                // 2. Move the root reference to the left child
-                if (fromParentLeft)
-                    parent.setLeft(node.getRight());
-                else
-                    parent.setRight(node.getRight());
-                Main.viewTree(this);
+    //             node.setRight(tempRoot);
+    //             Main.viewTree(this);
 
-                tempRoot.setRight(node.getLeft());
-                Main.viewTree(this);
+    //             tempRoot = null;
+    //         }
+    //         if (node.getBalanceFactor() > 0) {
+    //             isLeftRotation = true;
+    //             // 1. Get a new reference to the root
+    //             Main.viewTree(this);
+    //             tempRoot = node;
+    //             Main.viewTree(this);
+    //             // 2. Move the root reference to the left child
+    //             if (fromParentLeft)
+    //                 parent.setLeft(node.getRight());
+    //             else
+    //                 parent.setRight(node.getRight());
+    //             Main.viewTree(this);
 
-                parent.setLeft(tempRoot);
-                Main.viewTree(this);
+    //             node = node.getRight();
 
-                tempRoot = null;
-            }
-            return true;
-        }
-        if (balance(node.getLeft(), node, true))
-            return true;
-        if (balance(node.getRight(), node, false))
-            return true;
-        return false;
-    }
+    //             tempRoot.setRight(node.getLeft());
+    //             Main.viewTree(this);
+
+    //             node.setLeft(tempRoot);
+    //             Main.viewTree(this);
+
+    //             tempRoot = null;
+    //         }
+    //         tempParent = null;
+    //         return true;
+    //     }
+    //     if (balance(node.getLeft(), node, true))
+    //         return true;
+    //     if (balance(node.getRight(), node, false))
+    //         return true;
+    //     return false;
+    // }
 
     private int calculateBalance(Node<T> parentNode) {
         if (parentNode == null)

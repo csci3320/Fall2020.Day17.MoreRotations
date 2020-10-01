@@ -43,9 +43,9 @@ public class Main{
         MyCollection<String> myCollection = new BinaryTree();
 
         // Simple left rotation
-        // myCollection.add("mike");
-        // myCollection.add("sierra");
-        // myCollection.add("zulu");
+        myCollection.add("mike");
+        myCollection.add("sierra");
+        myCollection.add("zulu");
 
         // Simple right rotation
         // myCollection.add("mike");
@@ -61,19 +61,46 @@ public class Main{
         // myCollection.add("zulu");
 
         // Level 2 right rotation
-        myCollection.add("mike");
-        myCollection.add("zulu");
-        myCollection.add("golf");
-        myCollection.add("hotel");
-        myCollection.add("bravo");
-        myCollection.add("alpha");
+        // myCollection.add("mike");
+        // myCollection.add("zulu");
+        // myCollection.add("golf");
+        // myCollection.add("hotel");
+        // myCollection.add("bravo");
+        // myCollection.add("alpha");
 
-        //Double Rotation
+        //Deep right rotation 1
         // myCollection.add("mike");
         // myCollection.add("golf");
         // myCollection.add("sierra");
         // myCollection.add("oscar");
         // myCollection.add("charlie");
-        // myCollection.add("romeo");
+        // myCollection.add("november");
+
+        //Deep right rotation 2
+        // myCollection.add("mike");
+        // myCollection.add("golf");
+        // myCollection.add("sierra");
+        // myCollection.add("oscar");
+        // myCollection.add("charlie");
+        // myCollection.add("alpha");
+
+        //Deep left rotation 1
+        // myCollection.add("mike");
+        // myCollection.add("golf");
+        // myCollection.add("sierra");
+        // myCollection.add("xray");
+        // myCollection.add("charlie");
+        // myCollection.add("zulu");
+
+        //Deep left rotation 2
+        // myCollection.add("mike");
+        // myCollection.add("golf");
+        // myCollection.add("sierra");
+        // myCollection.add("xray");
+        // myCollection.add("hotel");
+        // myCollection.add("india");
+        
+
+        
     }
 }

@@ -5,6 +5,7 @@ public abstract class Digraphable<T extends Comparable> implements MyCollection<
 
   protected Node<T> root;
   protected Node<T> tempRoot;
+  protected Node<T> tempParent; //For viewing purposes only
   protected boolean isLeftRotation; //Keeps track of which direction the current rotation is--only for display
   private List<Node<T>> visitedNodes;// Prevent infinite loops when drawing
 
@@ -20,6 +21,9 @@ public abstract class Digraphable<T extends Comparable> implements MyCollection<
    
     if (tempRoot != null && isLeftRotation){
       toReturn += "tempRoot->" + tempRoot.getValue().toString() + "\n" + digraph(tempRoot);
+    }
+    if(tempParent != null){
+      toReturn += "tempParent->" + tempParent.getValue().toString() + "\n" + digraph(tempParent);
     }
     if (root == null) {
       toReturn += "root->null\n";
