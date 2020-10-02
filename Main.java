@@ -43,9 +43,9 @@ public class Main{
         MyCollection<String> myCollection = new BinaryTree();
 
         // Simple left rotation
-        myCollection.add("mike");
-        myCollection.add("sierra");
-        myCollection.add("zulu");
+        // myCollection.add("mike");
+        // myCollection.add("sierra");
+        // myCollection.add("zulu");
 
         // Simple right rotation
         // myCollection.add("mike");
@@ -69,12 +69,12 @@ public class Main{
         // myCollection.add("alpha");
 
         //Deep right rotation 1
-        // myCollection.add("mike");
-        // myCollection.add("golf");
-        // myCollection.add("sierra");
-        // myCollection.add("oscar");
-        // myCollection.add("charlie");
-        // myCollection.add("november");
+        myCollection.add("mike");
+        myCollection.add("golf");
+        myCollection.add("sierra");
+        myCollection.add("oscar");
+        myCollection.add("charlie");
+        myCollection.add("november");
 
         //Deep right rotation 2
         // myCollection.add("mike");
